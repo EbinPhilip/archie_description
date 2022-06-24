@@ -22,5 +22,5 @@
     name="rviz"
     pkg="rviz"
     type="rviz"
-    args="-d $(find archie_description)/urdf.rviz" />
+    args="-d $(find archie_description)/config/config.rviz" />
 </launch>
