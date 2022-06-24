@@ -154,7 +154,7 @@
   </link>
   <joint
     name="right_wheel_joint"
-    type="continuous">
+    type="fixed">
     <origin
       xyz="0 -0.23 0"
       rpy="0.00042319083381432 -2.68613784773866E-17 9.21205716330717E-14" />
