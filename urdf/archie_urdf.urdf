@@ -1,21 +1,23 @@
 <robot
   name="archie_description">
-  <link name="base_link"/>
+  <link
+    name="base_link">
+  </link>
   <link
     name="base">
     <inertial>
       <origin
-        xyz="0.0152830659077714 0.00540039654606211 0.0772732355708442"
+        xyz="0.00733453928201211 0.00515194891324405 0.0600590776385257"
         rpy="0 0 0" />
       <mass
-        value="2.03702160122731" />
+        value="2.31119340602887" />
       <inertia
-        ixx="0.0700076291523445"
-        ixy="0.00173252522409421"
-        ixz="0.0102580737433572"
-        iyy="0.0759066905708362"
-        iyz="0.000868955518701689"
-        izz="0.0392243111048869" />
+        ixx="0.0820365921519234"
+        ixy="0.00145402442171753"
+        ixz="0.00779736449789006"
+        iyy="0.0655678562763293"
+        iyz="0.000717742863308553"
+        izz="0.055720058769593" />
     </inertial>
     <visual>
       <origin
@@ -28,7 +30,7 @@
       <material
         name="">
         <color
-          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
       </material>
     </visual>
     <collision>
@@ -53,112 +55,6 @@
       link="base" />
     <axis
       xyz="0 0 0" />
-  </joint>
-  <link
-    name="lidar">
-    <inertial>
-      <origin
-        xyz="0.0119189346934023 -0.000416352072927687 -0.0147703105325154"
-        rpy="0 0 0" />
-      <mass
-        value="0.0735157357198281" />
-      <inertia
-        ixx="2.97357906825751E-05"
-        ixy="-5.26807920686531E-07"
-        ixz="9.41977601900913E-06"
-        iyy="5.97754355572045E-05"
-        iyz="2.66364043992351E-07"
-        izz="6.82720051792446E-05" />
-    </inertial>
-    <visual>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="package://archie_description/meshes/lidar.STL" />
-      </geometry>
-      <material
-        name="">
-        <color
-          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
-      </material>
-    </visual>
-    <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="package://archie_description/meshes/lidar.STL" />
-      </geometry>
-    </collision>
-  </link>
-  <joint
-    name="lidar_joint"
-    type="fixed">
-    <origin
-      xyz="0.219 -1.00719415356276E-05 0.0237999978688232"
-      rpy="-7.92848647505339E-20 0.00042319083381432 -1.57079632679487" />
-    <parent
-      link="base" />
-    <child
-      link="lidar" />
-    <axis
-      xyz="0 0 0" />
-  </joint>
-  <link
-    name="right_wheel">
-    <inertial>
-      <origin
-        xyz="-8.53355384065613E-05 0.00230829105658384 1.57153402591814E-05"
-        rpy="0 0 0" />
-      <mass
-        value="0.187715234825624" />
-      <inertia
-        ixx="0.000202585219170499"
-        ixy="-1.42815369425292E-09"
-        ixz="-1.20829539485632E-07"
-        iyy="0.000370271049787534"
-        iyz="2.23782609841976E-10"
-        izz="0.00020181360809056" />
-    </inertial>
-    <visual>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="package://archie_description/meshes/right_wheel.STL" />
-      </geometry>
-      <material
-        name="">
-        <color
-          rgba="0.294117647058824 0.294117647058824 0.294117647058824 1" />
-      </material>
-    </visual>
-    <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="package://archie_description/meshes/right_wheel.STL" />
-      </geometry>
-    </collision>
-  </link>
-  <joint
-    name="right_wheel_joint"
-    type="continuous">
-    <origin
-      xyz="0 -0.23 0"
-      rpy="0.00042319083381432 -2.68613784773866E-17 9.21205716330717E-14" />
-    <parent
-      link="base" />
-    <child
-      link="right_wheel" />
-    <axis
-      xyz="0 0.99999991045476 -0.00042319082118275" />
   </joint>
   <link
     name="left_wheel">
@@ -202,7 +98,7 @@
   </link>
   <joint
     name="left_wheel_joint"
-    type="continuous">
+    type="fixed">
     <origin
       xyz="0 0.23 0"
       rpy="0.00042319083381432 9.39672386974239E-20 2.84250897059694E-14" />
@@ -211,23 +107,129 @@
     <child
       link="left_wheel" />
     <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="right_wheel">
+    <inertial>
+      <origin
+        xyz="-8.53355384065613E-05 0.00230829105658387 1.57153402591537E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.187715234825624" />
+      <inertia
+        ixx="0.000202585219170499"
+        ixy="-1.42815369425293E-09"
+        ixz="-1.20829539485632E-07"
+        iyy="0.000370271049787534"
+        iyz="2.23782609841977E-10"
+        izz="0.00020181360809056" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://archie_description/meshes/right_wheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.294117647058824 0.294117647058824 0.294117647058824 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://archie_description/meshes/right_wheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="right_wheel_joint"
+    type="continuous">
+    <origin
+      xyz="0 -0.23 0"
+      rpy="0.00042319083381432 -2.68613784773866E-17 9.21205716330717E-14" />
+    <parent
+      link="base" />
+    <child
+      link="right_wheel" />
+    <axis
       xyz="0 0.99999991045476 -0.00042319082118275" />
+  </joint>
+  <link
+    name="lidar">
+    <inertial>
+      <origin
+        xyz="0.0119189312284075 -0.000416345790583944 -0.014770311626675"
+        rpy="0 0 0" />
+      <mass
+        value="0.0735157407518519" />
+      <inertia
+        ixx="2.97357868328591E-05"
+        ixy="-5.26803442400641E-07"
+        ixz="9.41977428915003E-06"
+        iyy="5.97754418539939E-05"
+        iyz="2.66365610700581E-07"
+        izz="6.8272006613991E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://archie_description/meshes/lidar.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://archie_description/meshes/lidar.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="lidar_joint"
+    type="fixed">
+    <origin
+      xyz="0.219 -1.00719415356276E-05 0.0237999978688232"
+      rpy="-7.92848647505339E-20 0.00042319083381432 -1.57079632679487" />
+    <parent
+      link="base" />
+    <child
+      link="lidar" />
+    <axis
+      xyz="0 0 0" />
   </joint>
   <link
     name="camera_tilt">
     <inertial>
       <origin
-        xyz="-0.00762019304628797 0.000468604856313337 0.040126487850928"
+        xyz="0.0288618063642319 -5.96959703891287E-11 0.0114042265638415"
         rpy="0 0 0" />
       <mass
-        value="0.0840366109601249" />
+        value="0.0217393031475654" />
       <inertia
-        ixx="0.000143438853205635"
-        ixy="3.23573045912139E-07"
-        ixz="2.06094905326448E-05"
-        iyy="9.07581348237213E-05"
-        iyz="-1.99624525894132E-07"
-        izz="8.82552096758467E-05" />
+        ixx="2.55450729458819E-05"
+        ixy="1.01285402595985E-15"
+        ixz="-2.45565933576798E-07"
+        iyy="2.56233006846258E-06"
+        iyz="1.078452381831E-14"
+        izz="2.40718051317747E-05" />
     </inertial>
     <visual>
       <origin
@@ -257,35 +259,30 @@
     name="camera_tilt_joint"
     type="revolute">
     <origin
-      xyz="-0.0640000000000006 -0.000263058437239949 0.621607087195183"
-      rpy="0.000423190833828422 -8.4596977843948E-17 2.87905309708803E-14" />
+      xyz="-0.0430000000000003 -0.000256393181805814 0.60585708860552"
+      rpy="0.000423190833828544 -2.81011526104924E-16 2.84249707446941E-14" />
     <parent
       link="base" />
     <child
       link="camera_tilt" />
     <axis
       xyz="0 1 0" />
-    <limit
-      lower="-1.5708"
-      upper="1.5708"
-      effort="1.2"
-      velocity="5.236" />
   </joint>
   <link
     name="camera">
     <inertial>
       <origin
-        xyz="0.00286762304627908 5.89571221623064E-05 0.0145825271049558"
+        xyz="0.00288923128022706 5.89496325621441E-05 0.0145825271054898"
         rpy="0 0 0" />
       <mass
-        value="0.0548652828163312" />
+        value="0.0548652828266136" />
       <inertia
-        ixx="6.99395203563963E-05"
-        ixy="-9.65763585635665E-08"
-        ixz="3.2114605667335E-08"
-        iyy="6.26127942962351E-06"
-        iyz="1.95459232604844E-09"
-        izz="6.88438963535692E-05" />
+        ixx="6.99395203644299E-05"
+        ixy="-9.65763568917195E-08"
+        ixz="3.21146058326594E-08"
+        iyy="6.26127942930752E-06"
+        iyz="1.95459290349925E-09"
+        izz="6.8843896362047E-05" />
     </inertial>
     <visual>
       <origin
@@ -315,8 +312,8 @@
     name="camera_joint"
     type="fixed">
     <origin
-      xyz="-0.0117733917670526 0 0.0721999999999999"
-      rpy="-5.7211217258985E-18 -1.89949332189128E-30 -3.31395851728883E-13" />
+      xyz="0.0432049999999997 0 -0.00250000000000017"
+      rpy="0 0 0" />
     <parent
       link="camera_tilt" />
     <child
