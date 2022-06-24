@@ -5,9 +5,9 @@
 
   <xacro:include filename="$(find realsense2_description)/urdf/_d455.urdf.xacro" />
   
-  <link name="base_link" />
+  <link name="base_footprint" />
   <link
-    name="base">
+    name="base_link">
     <inertial>
       <origin
         xyz="0.00733453928201211 0.00515194891324405 0.0600590776385257"
@@ -28,7 +28,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://archie_description/meshes/base.STL" />
+          filename="package://archie_description/meshes/base_link.STL" />
       </geometry>
       <material
         name="">
@@ -42,7 +42,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://archie_description/meshes/base.STL" />
+          filename="package://archie_description/meshes/base_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -53,9 +53,9 @@
       xyz="0 0 0.0549"
       rpy="-0.00042319083381432 -1.21232042851455E-17 -2.84597815903914E-14" />
     <parent
-      link="base_link" />
+      link="base_footprint" />
     <child
-      link="base" />
+      link="base_link" />
     <axis
       xyz="0 0 0" />
   </joint>
@@ -106,7 +106,7 @@
       xyz="0 0.23 0"
       rpy="0.00042319083381432 9.39672386974239E-20 2.84250897059694E-14" />
     <parent
-      link="base" />
+      link="base_link" />
     <child
       link="left_wheel" />
     <axis
@@ -159,7 +159,7 @@
       xyz="0 -0.23 0"
       rpy="0.00042319083381432 -2.68613784773866E-17 9.21205716330717E-14" />
     <parent
-      link="base" />
+      link="base_link" />
     <child
       link="right_wheel" />
     <axis
@@ -212,7 +212,7 @@
       xyz="0.219 -1.00719415356276E-05 0.0237999978688232"
       rpy="-7.92848647505339E-20 0.00042319083381432 -1.57079632679487" />
     <parent
-      link="base" />
+      link="base_link" />
     <child
       link="lidar" />
     <axis
@@ -265,7 +265,7 @@
       xyz="-0.0430000000000003 -0.000256393181805814 0.60585708860552"
       rpy="0.000423190833828544 -2.81011526104924E-16 2.84249707446941E-14" />
     <parent
-      link="base" />
+      link="base_link" />
     <child
       link="camera_tilt" />
     <axis
