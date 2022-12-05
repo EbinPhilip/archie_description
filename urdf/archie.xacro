@@ -4,7 +4,8 @@
   xmlns:xacro="http://www.ros.org/wiki/xacro">
 
   <xacro:include filename="$(find realsense2_description)/urdf/_d455.urdf.xacro" />
-  
+  <xacro:include filename="$(find sting_description)/urdf/sting.xacro" />
+
   <link name="base_footprint" />
   <link
     name="base_link">
@@ -42,7 +43,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://archie_description/meshes/base_link.STL" />
+          filename="package://archie_description/meshes/base_link_collision.STL" />
       </geometry>
     </collision>
   </link>
@@ -89,15 +90,6 @@
           rgba="0.294117647058824 0.294117647058824 0.294117647058824 1" />
       </material>
     </visual>
-    <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="package://archie_description/meshes/left_wheel.STL" />
-      </geometry>
-    </collision>
   </link>
   <joint
     name="left_wheel_joint"
@@ -142,15 +134,6 @@
           rgba="0.294117647058824 0.294117647058824 0.294117647058824 1" />
       </material>
     </visual>
-    <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="package://archie_description/meshes/right_wheel.STL" />
-      </geometry>
-    </collision>
   </link>
   <joint
     name="right_wheel_joint"
@@ -166,7 +149,7 @@
       xyz="0 0.99999991045476 -0.00042319082118275" />
   </joint>
   <link
-    name="lidar">
+    name="laser">
     <inertial>
       <origin
         xyz="0.0119189312284075 -0.000416345790583944 -0.014770311626675"
@@ -195,15 +178,6 @@
           rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
       </material>
     </visual>
-    <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="package://archie_description/meshes/lidar.STL" />
-      </geometry>
-    </collision>
   </link>
   <joint
     name="lidar_joint"
@@ -214,7 +188,7 @@
     <parent
       link="base_link" />
     <child
-      link="lidar" />
+      link="laser" />
     <axis
       xyz="0 0 0" />
   </joint>
@@ -248,15 +222,6 @@
           rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
       </material>
     </visual>
-    <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="package://archie_description/meshes/camera_tilt.STL" />
-      </geometry>
-    </collision>
   </link>
   <joint
     name="camera_tilt_joint"
@@ -293,4 +258,21 @@
   <xacro:sensor_d455 parent="camera_base" use_nominal_extrinsics="false">
     <origin xyz="0 0 0" rpy="0 0 0"/>
   </xacro:sensor_d455>
+  <link
+    name="arm_base">
+  </link>
+  <joint
+    name="arm_base_joint"
+    type="fixed">
+    <origin
+      xyz="0.20305 -0.10004 0.092958"
+      rpy="0.00042319 2.2426E-18 2.3348E-14" />
+    <parent
+      link="base_link" />
+    <child
+      link="arm_base" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <xacro:sting base_link="arm_base" />
 </robot>
